@@ -18,7 +18,6 @@ Endpoints utilizados:
 [POST] https://prueba-backend-bcts.herokuapp.com/register  
   -RequestedBody:  
     {
-        "id": 1,
         "name": "Joel",
         "surname": "romero",
         "username": "joel",
