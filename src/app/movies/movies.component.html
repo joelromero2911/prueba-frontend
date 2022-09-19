@@ -1,6 +1,16 @@
-<div class="text-end subir mb-2">
+<div class="text-end mb-2">
   <input type="text" placeholder="Buscar peli" aria-label="Search" [(ngModel)]="searchMovies">
 </div>
+<div class="text-start mb-2">
+  <label for="pages">Page:&nbsp;</label>
+
+  <select name="pages" id="pages" [(ngModel)]="currentPage">
+    <ng-container *ngFor="let page of pages">
+      <option value="{{ page }}" (click)="ngOnInit()">{{ page }}</option>
+    </ng-container>
+  </select>
+</div>
+
 <div *ngIf="movies!=null; else espera">
 
   <ng-container *ngFor="let m of movies.results">

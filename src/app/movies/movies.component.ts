@@ -11,6 +11,8 @@ export class MoviesComponent implements OnInit {
 
   movies:any = null
   searchMovies:any = ''
+  pages:any = []
+  currentPage:any = 1
 
   constructor(
     private router: Router,
@@ -21,10 +23,16 @@ export class MoviesComponent implements OnInit {
     if (!(sessionStorage.getItem('username') && sessionStorage.getItem('token'))) {
       this.router.navigate(['/login'])
     } else {
-      this.moviesService.getPopularMovies(1)
+      this.moviesService.getPopularMovies(this.currentPage)
       .subscribe(
         result => {
           this.movies = result;
+          for (let index = 1; index < this.movies.total_pages; index++) {
+            this.pages.push(index)
+            if(index == 100){
+              break // O break o peta porque hay 35146 paginas
+            }
+          }
           console.log(this.movies)
         }
       )
