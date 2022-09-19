@@ -4,7 +4,7 @@
 <div *ngIf="series!=null; else espera">
 
   <ng-container *ngFor="let s of series.results">
-    <div *ngIf="(s.name | lowercase).includes((searchSeries | lowercase))" class="inlineBlock">
+    <div *ngIf="(s.name | lowercase).includes((searchSeries | lowercase)) || (s.original_name | lowercase).includes((searchSeries | lowercase)) || (s.overview| lowercase).includes((searchSeries | lowercase))" class="inlineBlock">
         <div class="card m-2" style="width: 18rem;">
           <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{ s.poster_path}}" alt="Imagen {{ s.title }}">
           <div class="card-body">

@@ -13,28 +13,11 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) { }
   // Provide username and password for authentication, and once authentication is successful,
   //store JWT token in session
-  // createRequestToken(){
-  //   return this.httpClient.get<any>("https://api.themoviedb.org/3/authentication/token/new?api_key=4c6be10a0107ad01eb4f26fad58e0dc4")
-  //     .subscribe(
-  //       result => {
-  //         sessionStorage.setItem("request_token", result.request_token);
-  //         let token = result.request_token
-  //         this.httpClient.post<any>("https://api.themoviedb.org/3/authentication/session/new?api_key=4c6be10a0107ad01eb4f26fad58e0dc4", {
-  //           "request_token":token
-  //       })
-  //         .subscribe(
-  //           result => {
-  //             console.log(result)
-  //           }
-  //         )
-  //       }
-  //     )
-  // }
 
   authenticate(username: any, password: any) {
     console.log("ok")
     return this.httpClient
-      .post<any>("http://localhost:8080/login", { username, password })
+      .post<any>("https://prueba-backend-bcts.herokuapp.com/login", { username, password })
       .pipe(
         map(userData => {
           sessionStorage.setItem("username", username);
