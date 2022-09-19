@@ -1,20 +1,11 @@
 <div class="text-end mb-2">
   <input type="text" placeholder="Buscar peli" aria-label="Search" [(ngModel)]="searchMovies">
 </div>
-<div class="text-start mb-2">
-  <label for="pages">Page:&nbsp;</label>
-
-  <select name="pages" id="pages" [(ngModel)]="currentPage">
-    <ng-container *ngFor="let page of pages">
-      <option value="{{ page }}" (click)="ngOnInit()">{{ page }}</option>
-    </ng-container>
-  </select>
-</div>
 
 <div *ngIf="movies!=null; else espera">
 
   <ng-container *ngFor="let m of movies.results">
-    <div *ngIf="(m.title | lowercase).includes((searchMovies | lowercase)) || (m.original_title | lowercase).includes((searchMovies | lowercase)) || (m.overview| lowercase).includes((searchMovies | lowercase)) || (m.original_title | lowercase).includes((searchMovies | lowercase))" class="inlineBlock">
+    <div *ngIf="(m.title | lowercase).includes((searchMovies | lowercase)) || (m.original_title | lowercase).includes((searchMovies | lowercase)) || (m.overview| lowercase).includes((searchMovies | lowercase))" class="inlineBlock">
         <div class="card m-2" style="width: 18rem;">
           <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{ m.poster_path}}" alt="Imagen {{ m.title }}">
           <div class="card-body">
