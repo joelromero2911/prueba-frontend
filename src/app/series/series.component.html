@@ -1,0 +1,21 @@
+<div class="text-end subir mb-2">
+  <input type="text" placeholder="Buscar peli" aria-label="Search" [(ngModel)]="searchSeries">
+</div>
+<div *ngIf="series!=null; else espera">
+
+  <ng-container *ngFor="let s of series.results">
+    <div *ngIf="(s.name | lowercase).includes((searchSeries | lowercase))" class="inlineBlock">
+        <div class="card m-2" style="width: 18rem;">
+          <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{ s.poster_path}}" alt="Imagen {{ s.title }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ s.name }}</h5>
+            <p>Original name: {{ s.original_name }}</p>
+            <p>Overview:</p>
+            <p>{{ s.overview }}</p>
+            <a routerLink="/series-details/{{ s.id }}" class="btn btn-primary">Ver detalles</a>&nbsp;
+          </div>
+        </div>
+    </div>
+  </ng-container>
+</div>
+<ng-template #espera>Esperando datos...</ng-template>

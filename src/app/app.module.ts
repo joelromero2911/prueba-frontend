@@ -9,6 +9,11 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { MoviesComponent } from './movies/movies.component';
+import { SeriesComponent } from './series/series.component';
+import { MoviesDetailComponent } from './movies-detail/movies-detail.component';
+import { SeriesDetailComponent } from './series-detail/series-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,12 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     LogoutComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    MoviesComponent,
+    SeriesComponent,
+    MoviesDetailComponent,
+    SeriesDetailComponent
   ],
   imports: [
     BrowserModule,

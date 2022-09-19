@@ -1,0 +1,22 @@
+<div class="card m-2" style="width: 100%;">
+  <div class="row">
+    <div class="col-md-4 col-sm-12">
+      <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{ serie.poster_path}}"
+        alt="Imagen {{ serie.name }}">
+    </div>
+    <div class="col-md-8 col-sm-12">
+      <div class="card-body col">
+        <h5 class="card-title">{{ serie.name }}</h5>
+        <p><strong>Original title:</strong> {{ serie.original_name }}</p>
+        <p><strong>Overview:</strong></p>
+        <p>{{ serie.overview }}</p>
+        <p><strong>Genres:</strong></p>
+          <ul>
+            <li *ngFor="let g of serie.genres">{{ g.name }}</li>
+          </ul>
+        <p><strong>First air date:</strong> {{ serie.first_air_date }}</p>
+        <p><strong>Vote Count:</strong> {{ serie.vote_count }}</p>
+      </div>
+    </div>
+  </div>
+</div>
