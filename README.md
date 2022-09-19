@@ -1,27 +1,45 @@
 # PruebaFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+## Deploy en AWS: https://main.d3oi34452ravjk.amplifyapp.com/  
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Back-end empleado para la funcionalidad del login y resolver JWT:  
+#### https://github.com/joelromero2911/prueba-backend  
+  
+Usuarios predeterminados para iniciar sesión:  
+ · Username: joel | Password: 1234  
+ · Username: jose | Password: 1234  
+  
+También puedes registrarte desde la aplicación desplegada en AWS.  
+  
+Endpoints utilizados:  
+[POST] https://prueba-backend-bcts.herokuapp.com/login  
+  -RequestedBody:  
+    { "username":"joel", "password":"1234" }  
+[POST] https://prueba-backend-bcts.herokuapp.com/register  
+  -RequestedBody:  
+    {
+        "name": "Joel",
+        "surname": "romero",
+        "username": "joel",
+        "password": "1234",
+        "enabled": true,
+        "roles": [
+            {
+                "id": 1,
+                "name": "ADMIN"
+            }
+        ]
+    }  
+  
+#### Api empleada para sacar la información:  
+#### https://developers.themoviedb.org/3/getting-started/introduction  
+  
+Endpoints utilizados:  
+- Movies  
+[GET] https://api.themoviedb.org/3/movie/popular  
+[GET] https://api.themoviedb.org/3/movie/{id}  
+- Series  
+[GET] https://api.themoviedb.org/3/tv/popular  
+[GET] https://api.themoviedb.org/3/tv/{id}  
+  
+No puedes acceder a ninguna vista si no te has logueado. Una vez logueado, puedes acceder a la lista de peliculas y series, te mostrará una serie de detalles, puedes ver mas información de éstas si clicas el botón de 'Ver detalles'.
